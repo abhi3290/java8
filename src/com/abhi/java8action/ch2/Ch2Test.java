@@ -26,8 +26,6 @@ public class Ch2Test {
                 return "green".equals(o.getColor());
             }
         });
-
-
     }
 
     public static List<Apple> filterApples(List<Apple> apples, String color) {
