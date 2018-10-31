@@ -17,6 +17,17 @@ public class Ch2Test {
                 System.out.println("Apple's color is "+apple.getColor()+" and weight is "+apple.getWeight());
             }
         });
+
+
+
+        filterCollections(apples, new GenericPredicate<Apple>() {
+            @Override
+            public boolean test(Apple o) {
+                return "green".equals(o.getColor());
+            }
+        });
+
+
     }
 
     public static List<Apple> filterApples(List<Apple> apples, String color) {
@@ -47,6 +58,19 @@ public class Ch2Test {
         for(Apple apple : apples) {
             applePrinter.print(apple);
         }
+    }
+
+
+    public static <T> List<T> filterCollections(List<T> collections, GenericPredicate predicate) {
+        List<T> result = new ArrayList<>();
+
+        for(T item : collections) {
+            if(predicate.test(item)) {
+                result.add(item);
+            }
+        }
+
+        return  result;
     }
 }
 
