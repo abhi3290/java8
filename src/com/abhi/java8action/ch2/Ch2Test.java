@@ -27,7 +27,7 @@ public class Ch2Test {
             }
         });
 
-
+        filterApples(apples, (Apple a) -> "green".equals(a.getColor()));
         filterCollections(apples, (Apple a) -> "green".equals(a.getColor()));
     }
 
