@@ -20,5 +20,11 @@ public class Ch2Test {
 
         return  result;
     }
+
+    public void printApples(List<Apple> apples, ApplePrinter applePrinter) {
+        for(Apple apple : apples) {
+            applePrinter.print(apple);
+        }
+    }
 }
 
