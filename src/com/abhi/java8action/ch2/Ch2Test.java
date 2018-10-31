@@ -10,8 +10,26 @@ public class Ch2Test {
         List<Apple> greenApples = filterApples(apples, new GreenApplePredicate());
         printApples(apples, new ToStringApplePrinter());
 
+        // using anonymous inner class
+        printApples(apples, new ApplePrinter() {
+            @Override
+            public void print(Apple apple) {
+                System.out.println("Apple's color is "+apple.getColor()+" and weight is "+apple.getWeight());
+            }
+        });
     }
 
+    public static List<Apple> filterApples(List<Apple> apples, String color) {
+        List<Apple> result = new ArrayList<>();
+
+        for(Apple apple : apples) {
+            if(color.equals(apple.getColor())) {
+                result.add(apple);
+            }
+        }
+
+        return  result;
+    }
 
     public static List<Apple> filterApples(List<Apple> apples, ApplePredicate predicate) {
         List<Apple> result = new ArrayList<>();
