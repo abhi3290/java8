@@ -33,10 +33,9 @@ public class Ch3Test {
 
         // (arg0, rest) -> arg0.instanceMethod(rest); Method reference- ClassNameOfArgo::instanceMethod
         Comparator<String> instanceFunction = (a ,b) -> a.compareToIgnoreCase(b);
-        Comparator<String> instanceFunction1 = (a ,b) -> a.compareToIgnoreCase(b);
+        Comparator<String> instanceFunction1 = String::compareToIgnoreCase;
 
         // (argo0) -> expr.instanceMethod(argo); Method reference - expr::instanceMethod
-
 
 
         // constructor
