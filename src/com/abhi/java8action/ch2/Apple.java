@@ -2,7 +2,7 @@ package com.abhi.java8action.ch2;
 
 public class Apple {
     private String color;
-    private String weight;
+    private Integer weight;
 
     public String getColor() {
         return color;
@@ -12,11 +12,11 @@ public class Apple {
         this.color = color;
     }
 
-    public String getWeight() {
+    public Integer getWeight() {
         return weight;
     }
 
-    public void setWeight(String weight) {
+    public void setWeight(Integer weight) {
         this.weight = weight;
     }
 

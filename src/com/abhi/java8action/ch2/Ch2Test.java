@@ -2,6 +2,7 @@ package com.abhi.java8action.ch2;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class Ch2Test {
     public static void main(String[] args) {
@@ -29,6 +30,7 @@ public class Ch2Test {
 
         filterApples(apples, (Apple a) -> "green".equals(a.getColor()));
         filterCollections(apples, (Apple a) -> "green".equals(a.getColor()));
+        filterCollectionsWithExistingPredicate(apples, (Apple a) -> a.getWeight() > 150);
     }
 
     public static List<Apple> filterApples(List<Apple> apples, String color) {
@@ -63,6 +65,18 @@ public class Ch2Test {
 
 
     public static <T> List<T> filterCollections(List<T> collections, GenericPredicate<T> predicate) {
+        List<T> result = new ArrayList<>();
+
+        for(T item : collections) {
+            if(predicate.test(item)) {
+                result.add(item);
+            }
+        }
+
+        return  result;
+    }
+
+    public static <T> List<T> filterCollectionsWithExistingPredicate(List<T> collections, Predicate<T> predicate) {
         List<T> result = new ArrayList<>();
 
         for(T item : collections) {
