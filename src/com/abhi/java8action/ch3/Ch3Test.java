@@ -9,6 +9,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 public class Ch3Test {
     public static void main(String[] args) {
@@ -35,6 +36,14 @@ public class Ch3Test {
         Comparator<String> instanceFunction1 = (a ,b) -> a.compareToIgnoreCase(b);
 
         // (argo0) -> expr.instanceMethod(argo); Method reference - expr::instanceMethod
+
+
+
+        // constructor
+        Supplier<Apple> apple = () -> new Apple();
+        Supplier<Apple> apple1 = Apple::new;
+
+
 
     }
 
