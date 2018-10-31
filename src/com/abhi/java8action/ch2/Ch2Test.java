@@ -33,7 +33,8 @@ public class Ch2Test {
         filterCollectionsWithExistingPredicate(apples, (Apple a) -> a.getWeight() > 150);
 
         Predicate<Apple> weightedApplePredicate = (a) -> a.getWeight() > 150;
-        filterCollectionsWithExistingPredicate(apples, weightedApplePredicate);
+        GenericPredicate<Apple> weightedGenericApplePredicate = (a) -> a.getWeight() > 150;
+        filterCollections(apples, weightedGenericApplePredicate);
     }
 
     public static List<Apple> filterApples(List<Apple> apples, String color) {
