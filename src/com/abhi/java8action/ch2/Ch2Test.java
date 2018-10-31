@@ -28,7 +28,7 @@ public class Ch2Test {
         });
 
 
-        filterApples(apples, (Apple a) -> "green".equals(a.getColor()));
+        filterCollections(apples, (Apple a) -> "green".equals(a.getColor()));
     }
 
     public static List<Apple> filterApples(List<Apple> apples, String color) {
@@ -62,7 +62,7 @@ public class Ch2Test {
     }
 
 
-    public static <T> List<T> filterCollections(List<T> collections, GenericPredicate predicate) {
+    public static <T> List<T> filterCollections(List<T> collections, GenericPredicate<T> predicate) {
         List<T> result = new ArrayList<>();
 
         for(T item : collections) {
