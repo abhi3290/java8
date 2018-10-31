@@ -31,6 +31,9 @@ public class Ch2Test {
         filterApples(apples, (Apple a) -> "green".equals(a.getColor()));
         filterCollections(apples, (Apple a) -> "green".equals(a.getColor()));
         filterCollectionsWithExistingPredicate(apples, (Apple a) -> a.getWeight() > 150);
+
+        Predicate<Apple> weightedApplePredicate = (a) -> a.getWeight() > 150;
+        filterCollectionsWithExistingPredicate(apples, weightedApplePredicate);
     }
 
     public static List<Apple> filterApples(List<Apple> apples, String color) {
