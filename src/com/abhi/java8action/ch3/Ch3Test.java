@@ -15,9 +15,12 @@ public class Ch3Test {
         filter(apples, (a) -> a.getWeight() > 150);
 
         sort(apples, (a1, a2) -> a1.getWeight() - a2.getWeight());
+        sort(apples, Comparator.comparing((a) -> a.getWeight()));
+        sort(apples, Comparator.comparing(Apple::getWeight));
 
-        
     }
+
+
 
     public static <T> List<T> filter(List<T> collections, Predicate<T> predicate) {
         List<T> result = new ArrayList<>();
