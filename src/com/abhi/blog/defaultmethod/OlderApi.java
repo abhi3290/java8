@@ -9,15 +9,26 @@ public interface OlderApi {
 
 	public void oldMethod();
 
+	default public void newMethod1(){
+		System.out.println("Default Implementation of newMethod");
+	}
+
+	/*default public void newMethod1(){
+		System.out.println("Default Implementation of newMethod");
+	}*/
+}
+
+interface NewApi {
 	default public void newMethod(){
 		System.out.println("Default Implementation of newMethod");
 	}
 }
 
-class OlderApiImpl implements  OlderApi {
+class OlderApiImpl implements  OlderApi, NewApi {
+
 
 	@Override
 	public void oldMethod() {
-		System.out.println("Implementation of oldMethod");
+
 	}
 }
