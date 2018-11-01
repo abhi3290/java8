@@ -35,5 +35,13 @@ public class GroupingTest {
 
         Map<Integer, Dish> maxCaloriesDishInType = menu.stream().collect(groupingBy(Dish::getCalories, collectingAndThen(maxBy(comparingInt(Dish::getCalories)), Optional::get)));
         System.out.println(maxCaloriesDishInType);
+
+
+        Map<Boolean, List<Dish>> vegNonVegDishes = menu.stream().collect(partitioningBy(Dish::isVegetarian));
+        System.out.println(vegNonVegDishes);
+
+        Map<Boolean, Map<Dish.Type, List<Dish>>> vegetarianDishesByType =
+                menu.stream().collect(partitioningBy(Dish::isVegetarian, groupingBy(Dish::getType)));
+        System.out.println(vegetarianDishesByType);
     }
 }
