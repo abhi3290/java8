@@ -5,6 +5,7 @@ import com.abhi.java8action.ch4.Dish;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class NumericStreamTest {
     public static void main(String[] args) {
@@ -26,10 +27,19 @@ public class NumericStreamTest {
         System.out.println(sum);
 
 
-        IntStream.rangeClosed(1, 100).filter(i -> i%2 == 0).forEach(System.out::println);
+        System.out.println("Generating even numbers between 1 to 10");
+        IntStream.rangeClosed(1, 10).filter(i -> i%2 == 0).forEach(System.out::println);
 
 
+        System.out.println("Generating 10 even numbers");
+        Stream.iterate(0, n -> n+2).limit(10).forEach(System.out::println);
+
+        System.out.println("Generating 10 fibonacci numbers");
+        Stream.iterate(new int[]{0,1}, t-> new int[]{t[1], t[0]+t[1]}).limit(10)
+                .forEach(t-> System.out.println("("+t[0]+", "+t[1]+")"));
 
 
+        System.out.println("Generating stream of number 2");
+        Stream.generate(() -> 2).limit(5).forEach(System.out::println);
     }
 }
